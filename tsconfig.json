@@ -1,14 +1,14 @@
-// {
-//   "compilerOptions": {
-//     "target": "ES6",                  // Use ES6 or later
-//     "module": "ES6",                  // Use ES6 module system
-//     "moduleResolution": "node",       // Resolve modules in Node.js style
-//     "outDir": "./dist",               // Output compiled files to 'dist'
-//     "esModuleInterop": true,          // Enable compatibility for CommonJS and ES Module imports
-//     "forceConsistentCasingInFileNames": true,
-//     "strict": true,
-//     "skipLibCheck": true
-//   },
-//   "include": ["src/**/*.ts"],
-//   "exclude": ["node_modules"]
-// }
+{
+  "compilerOptions": {
+    "target": "es2016",                  
+    "module": "commonjs",                  
+    "moduleResolution": "node",      
+    "outDir": "./dist",               // Output compiled files to 'dist'
+    "esModuleInterop": true,          // Enable compatibility for CommonJS and ES Module imports
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}

@@ -57,11 +57,10 @@ export class PlanetsServer implements IPlanetsServer {
       }
       call.end(); // End the stream once all planets are sent
     } catch (err) {
-      console.error(
-        `getPlanets: error streaming planets - ${(err as Error).message}`
-      );
+      console.error(`getPlanets: error streaming planets - ${(err as Error).message}`);
+
       call.destroy({
-        code: Status.INTERNAL,
+        name: "InternalError",
         message: "Error streaming planets",
       });
     }

@@ -2,15 +2,16 @@
   "name": "grpc-node-planets",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "keywords": ["grpc", "nodejs", "typescript", "protocol-buffers"],
+  "author": "Dennis Riungu",
+  "license": "ISC",
+  "main": "src/server/index.js",
   "scripts": {
     "proto:gen": "bash proto/proto.sh",
-    "server": "ts-node src/index.ts",
-    "client": "ts-node src/index.ts"
+    "start-ts": "node dist/server/index.js",
+    "server": "ts-node src/server/index.ts",
+    "client": "ts-node src/client/index.ts"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@grpc/grpc-js": "^1.11.2",
     "cli-table3": "^0.6.5",

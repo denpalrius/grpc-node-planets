@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package planets;
+
+import "google/protobuf/empty.proto";
+
+enum HasLife {
+    YES = 0;
+    NO = 1;
+    UNKNOWN = 2;
+}
+
+message Planet {
+    int32 id = 1;
+    string name = 2;
+    int32 orderFromTheSun = 3;
+    HasLife hasLife = 4;
+}
+
+message PlanetsList {
+    repeated Planet planets = 1;
+}
+
+message GetPlanetRequest {
+    int32 id = 1;
+}
+
+message GetPlanetResponse {
+    Planet planet = 1;
+}
+
+service Planets {
+    rpc GetPlanet(GetPlanetRequest) returns (GetPlanetResponse) {};
+    rpc GetPlanets(google.protobuf.Empty) returns (stream Planet) {};
+    rpc CreatePlanet(stream Planet) returns (GetPlanetResponse) {};
+}

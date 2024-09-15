@@ -1,11 +1,14 @@
 {
   "compilerOptions": {
-    "outFile": "./dist/bundle.js", // Path to the single output file
-    "module": "none", // Use 'none' for a single file output
-    "moduleResolution": "node", // Resolve modules using Node.js resolution strategy
-    "target": "es6", // or any other ECMAScript target version
-    "sourceMap": true // Optional: to generate source maps
+    "target": "es2016",                  
+    "module": "commonjs",              
+    "moduleResolution": "node",       // Resolve modules in Node.js style
+    "outDir": "./dist",               // Output compiled files to 'dist'
+    "esModuleInterop": true,          // Enable compatibility for CommonJS and ES Module imports
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
   },
-  "include": ["src/**/*"], // Path to your TypeScript files
-  "exclude": ["node_modules"] // Exclude node_modules folder
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
 }

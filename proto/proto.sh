@@ -24,26 +24,23 @@ fi
 # Set variables
 PROTO_FILE="./proto/planets.proto"
 OUTPUT_DIR="./proto/schema"
-JS_OUT_DIR="$OUTPUT_DIR/js"
-TS_OUT_DIR="$OUTPUT_DIR/ts"
 
-# Create output directories if they don't exist
-mkdir -p "$JS_OUT_DIR"
-mkdir -p "$TS_OUT_DIR"
+# Create output directory if it doesn't exist
+mkdir -p "$OUTPUT_DIR"
 
 # Generate JavaScript code
 protoc \
-    --js_out=import_style=commonjs,binary:$JS_OUT_DIR \
-    --grpc_out=grpc_js:$JS_OUT_DIR \
-    --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` \
+    --js_out=import_style=commonjs,binary:$OUTPUT_DIR \
+    --grpc_out=grpc_js:$OUTPUT_DIR \
+    --plugin=protoc-gen-grpc=$(which grpc_tools_node_protoc_plugin) \
     --proto_path=$(dirname $PROTO_FILE) \
     $PROTO_FILE
 
 # Generate TypeScript code
 protoc \
     --plugin=protoc-gen-ts=$(which protoc-gen-ts) \
-    --ts_out="service=grpc-node,mode=grpc-js:$TS_OUT_DIR" \
+    --ts_out="service=grpc-node,mode=grpc-js:$OUTPUT_DIR" \
     --proto_path=$(dirname $PROTO_FILE) \
     $PROTO_FILE
 
-echo "Protobuf schemas generated successfully!"
+echo "Protobuf schemas generated successfully in $OUTPUT_DIR!"

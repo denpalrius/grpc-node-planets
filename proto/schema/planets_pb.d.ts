@@ -17,6 +17,9 @@ export class Planet extends jspb.Message {
   getHaslife(): HasLifeMap[keyof HasLifeMap];
   setHaslife(value: HasLifeMap[keyof HasLifeMap]): void;
 
+  getMotherstar(): string;
+  setMotherstar(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Planet.AsObject;
   static toObject(includeInstance: boolean, msg: Planet): Planet.AsObject;
@@ -33,6 +36,7 @@ export namespace Planet {
     name: string,
     orderfromthesun: number,
     haslife: HasLifeMap[keyof HasLifeMap],
+    motherstar: string,
   }
 }
 

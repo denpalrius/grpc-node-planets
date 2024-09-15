@@ -15,6 +15,7 @@ message Planet {
     string name = 2;
     int32 orderFromTheSun = 3;
     HasLife hasLife = 4;
+    string motherStar = 5;
 }
 
 message PlanetsList {

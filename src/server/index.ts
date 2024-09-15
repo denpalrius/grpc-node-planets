@@ -1,6 +1,6 @@
 import { Server, ServerCredentials } from "@grpc/grpc-js";
 import { PlanetsServer } from "./services";
-import { PlanetsService } from "../../proto/schema/ts/planets_grpc_pb";
+import { PlanetsService } from "../../proto/schema/planets_grpc_pb";
 
 const server = new Server();
 server.addService(PlanetsService, new PlanetsServer());

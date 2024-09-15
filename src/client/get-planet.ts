@@ -1,4 +1,4 @@
-import { GetPlanetRequest, Planet } from "../../proto/schema/ts/planets_pb";
+import { GetPlanetRequest, Planet } from "../../proto/schema/planets_pb";
 import { client } from "./utils";
 
 export default function getPlanet(id: number): Promise<Planet> {

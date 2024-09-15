@@ -1,5 +1,5 @@
 import { Empty } from "google-protobuf/google/protobuf/empty_pb";
-import { Planet } from "../../proto/schema/ts/planets_pb";
+import { Planet } from "../../proto/schema/planets_pb";
 import { client } from "./utils";
 
 export default function getAllPlanets(): Promise<Planet[]> {

@@ -12,8 +12,8 @@ import {
   GetPlanetRequest,
   GetPlanetResponse,
   Planet,
-} from "../../proto/schema/ts/planets_pb";
-import { IPlanetsServer } from "../../proto/schema/ts/planets_grpc_pb";
+} from "../../proto/schema/planets_pb";
+import { IPlanetsServer } from "../../proto/schema/planets_grpc_pb";
 import { planets } from "./db";
 
 export class PlanetsServer implements IPlanetsServer {
@@ -23,6 +23,8 @@ export class PlanetsServer implements IPlanetsServer {
     call: ServerUnaryCall<GetPlanetRequest, GetPlanetResponse>,
     callback: sendUnaryData<GetPlanetResponse>
   ) {
+    console.log("\n/getPlanet");
+
     const planetId = call.request.getId();
     const planet = planets.find((p) => p.getId() === planetId);
 
@@ -49,7 +51,7 @@ export class PlanetsServer implements IPlanetsServer {
   }
 
   getPlanets(call: ServerWritableStream<Empty, Planet>) {
-    console.log("getPlanets: streaming planets.");
+    console.log("\ngetPlanets: streaming planets.");
 
     try {
       for (const planet of planets) {
@@ -70,7 +72,7 @@ export class PlanetsServer implements IPlanetsServer {
     call: ServerReadableStream<Planet, GetPlanetResponse>,
     callback: sendUnaryData<GetPlanetResponse>
   ) {
-    console.log("createPlanet: creating a new planet from stream.");
+    console.log("\ncreatePlanet: creating a new planet from stream.");
 
     let newPlanet: Planet | null = null;
 
